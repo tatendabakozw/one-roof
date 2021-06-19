@@ -4,7 +4,7 @@ import HomeNavbar from '../components/nav/HomeNavbar'
 
 interface Props{
     children: JSX.Element[] | JSX.Element;
-    page_title?: string
+    page_title: string
     page_description?: string
 }
 

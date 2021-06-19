@@ -32,7 +32,7 @@ function HomeNavbar(props: Props): ReactElement {
     },[])
 
     return (
-        <nav  className={`${shadowOn ? 'shadow' : 'shadow-none'} + fixed w-full bg-white flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg`}>
+        <nav  className={`${shadowOn ? 'shadow' : 'shadow-none'} + w-full bg-white flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg`}>
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -40,7 +40,7 @@ function HomeNavbar(props: Props): ReactElement {
             <Link href='/' >
               <a className={"text-blue-900 title-lg text-lg font-semibold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"}>ONEROOF </a>
             </Link>
-            
+
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"

@@ -18,7 +18,7 @@ function login():ReactElement {
 
     return (
         <HomeLayout page_title="Log In" page_description="Log in to on roof market platform">
-            <div className="pt-16 flex h-screen w-full">
+            <div className="flex h-screen w-full">
                 <div className="m-auto w-1/3 flex flex-col">
                     <p className="text-gray-700 text-3xl self-center font-semibold mb-8">Log In</p>
                     <span 
