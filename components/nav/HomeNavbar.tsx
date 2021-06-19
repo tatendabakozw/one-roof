@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Dropdown from '../dropdown/NavDropdown';
 import { Transition } from '@headlessui/react'
 import HomeSearch from '../search/HomeSearch';
+import MenuIcon from '@material-ui/icons/Menu'
 
 interface Props {
     transparent? : boolean
@@ -18,6 +19,19 @@ function HomeNavbar(props: Props): ReactElement {
             id: "1",
             location: '/becomeaseller'
         }
+    ]
+
+    const mobile_nav_options =[
+      {
+        option: "Log In",
+        id: "1",
+        location: '/auth/login'
+      },
+      {
+        option: "Sign Up",
+        id: "1",
+        location: '/auth/login'
+      }
     ]
 
     // put shadow on after scrolling down
@@ -47,12 +61,11 @@ function HomeNavbar(props: Props): ReactElement {
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}>
-              <i
-                className={
-                  (props.transparent ? "text-white" : "text-gray-800") +
-                  " fas fa-bars"
-                }
-              ></i>
+              <span
+                className={"text-blue-900"}
+              >
+                <MenuIcon/>
+              </span>
             </button>
           </div>
           <div className={"lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" + (navbarOpen ? " block rounded shadow-lg" : " hidden")}id="example-navbar-warning">
@@ -83,9 +96,21 @@ function HomeNavbar(props: Props): ReactElement {
                         </li>
                     ))
                 }
-              <li className="flex items-center">
+              <li className="lg:flex md:flex hidden items-center">
                 <Dropdown/>
               </li>
+
+              {mobile_nav_options.map(option =>(
+                <li className="items-center lg:hidden md:hidden flex">
+                    <a
+                    className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase"}
+                    href={option.location}
+                    >
+                    <span className="inline-block">{option.option}</span>
+                    </a>
+                </li>
+              ))}
+
             </ul>
           </div>
         </div>
