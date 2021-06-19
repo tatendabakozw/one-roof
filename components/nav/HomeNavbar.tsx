@@ -1,6 +1,8 @@
+import React, {ReactElement, useEffect, useState, Fragment} from 'react'
 import Link from 'next/link';
-import React, {ReactElement, useEffect, useState} from 'react'
 import Dropdown from '../dropdown/NavDropdown';
+import { Transition } from '@headlessui/react'
+import HomeSearch from '../search/HomeSearch';
 
 interface Props {
     transparent? : boolean
@@ -20,7 +22,7 @@ function HomeNavbar(props: Props): ReactElement {
 
     // put shadow on after scrolling down
     const toggleShadow = () => {
-      if (window.scrollY >= 80) {
+      if (window.scrollY >= 500) {
         setShadowOn(true)
       } else {
         setShadowOn(false)
@@ -32,7 +34,7 @@ function HomeNavbar(props: Props): ReactElement {
     },[])
 
     return (
-        <nav  className={`${shadowOn ? 'shadow' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg`}>
+        <nav  className={`${shadowOn ? 'shadow fixed mb-16 transition duration-1500 ease-in-out' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-4 navbar-expand-lg`}>
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -55,6 +57,20 @@ function HomeNavbar(props: Props): ReactElement {
           </div>
           <div className={"lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" + (navbarOpen ? " block rounded shadow-lg" : " hidden")}id="example-navbar-warning">
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+                  <Transition
+                    as={Fragment}
+                    show={shadowOn}
+                    enter="transform transition duration-[400ms]"
+                    enterFrom="opacity-0 rotate-[-10deg] scale-50"
+                    enterTo="opacity-100 rotate-0 scale-100"
+                    leave="transform duration-200 transition ease-in-out"
+                    leaveFrom="opacity-100 rotate-0 scale-100 "
+                    leaveTo="opacity-0 scale-95 "
+                  >
+                  <li className={`${shadowOn ? 'flex' : 'hidden'} flex items-center mr-2`}>
+                    <div className="flex w-full"><HomeSearch /></div>
+                  </li>
+                  </Transition>
                 {
                     nav_options.map(option=>(
                         <li className="flex items-center">
