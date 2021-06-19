@@ -9,7 +9,7 @@ function classNames(...classes: any[]) {
 
 function Dropdown():ReactElement {
     return (
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu as="div" className="z-50 relative inline-block text-left">
         {({ open }) => (
             <>
             <div>

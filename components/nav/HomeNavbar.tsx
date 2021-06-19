@@ -32,7 +32,7 @@ function HomeNavbar(props: Props): ReactElement {
     },[])
 
     return (
-        <nav  className={`${shadowOn ? 'shadow' : 'shadow-none'} + w-full bg-white flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg`}>
+        <nav  className={`${shadowOn ? 'shadow' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg`}>
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
