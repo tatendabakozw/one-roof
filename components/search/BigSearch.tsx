@@ -3,7 +3,7 @@ import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 
 function BigSearch():ReactElement {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col cursor-pointer">
             <div className="flex">
                 <p className="bg-gray-200 text-gray-700 py-2 px-8 ml-16 rounded-t-lg">Search</p>
             </div>
