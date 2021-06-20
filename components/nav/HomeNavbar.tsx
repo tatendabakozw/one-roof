@@ -48,7 +48,7 @@ function HomeNavbar(props: Props): ReactElement {
     },[])
 
     return (
-        <nav  className={`${shadowOn ? 'shadow fixed mb-16 transition duration-1500 ease-in-out' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-4 navbar-expand-lg`}>
+        <nav  className={`${shadowOn ? 'shadow-lg fixed mb-16 transition duration-1500 ease-in-out' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-4 navbar-expand-lg`}>
 
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -86,7 +86,7 @@ function HomeNavbar(props: Props): ReactElement {
                   </Transition>
                 {
                     nav_options.map(option=>(
-                        <li className="flex items-center">
+                        <li key={option.id} className="flex items-center">
                             <a
                             className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}
                             href={option.location}
@@ -101,7 +101,7 @@ function HomeNavbar(props: Props): ReactElement {
               </li>
 
               {mobile_nav_options.map(option =>(
-                <li className="items-center lg:hidden md:hidden flex">
+                <li key={option.id} className="items-center lg:hidden md:hidden flex">
                     <a
                     className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase"}
                     href={option.location}

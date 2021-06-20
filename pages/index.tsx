@@ -2,6 +2,7 @@ import HomeLayout from '../layouts/HomeLayout'
 import Image from 'next/image'
 import profilePic from '../public/house3.png'
 import BigSearch from '../components/search/BigSearch'
+import {HomeIcon, CashIcon, PresentationChartBarIcon} from '@heroicons/react/outline'
 
 export default function Home() {
   return (
@@ -23,8 +24,47 @@ export default function Home() {
             </>
           </div>
         </div>
-        <div className="min-h-screen">
-          sa
+        <div className="min-h-screen mt-16">
+          <div className="self-center flex flex-col">
+            <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">our services</p>
+            <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
+            <p className="text-4xl w-2/3 font-semibold self-center text-center text-gray-700 mb-24">We have a variety of listings and constant updates. 
+              So you'll never miss out
+            </p>
+            <div className="grid grid-cols-3 gap-16">
+                <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
+                  <div className="flex">
+                    <span className="bg-yellow-200 p-2 rounded-lg">
+                      <HomeIcon height={32} width={32} className="text-yellow-400 rounded-lg " />
+                    </span>
+                  </div>
+                  <p className="text-gray-700 font-semibold text-lg my-8">Buy a home</p>
+                  <p className="text-gray-500 w-4/5">Find your place with an immersive photo experience and the most listings, including places you wont find anywhere</p>
+                </div>
+                <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
+                  <div className="flex">
+                    <span className="bg-indigo-200 p-2 rounded-lg">
+                      <CashIcon height={32} width={32} className="text-indigo-400 rounded-lg" />
+                    </span>
+                  </div>
+                  <p className="text-gray-700 font-semibold text-lg my-8">Sell a home</p>
+                  <p className="text-gray-500 w-4/5">
+                    Whether you sell with new One Roof Market or take another approach, we'll help you navigate the path to a successful sale.
+                  </p>
+                </div>
+                <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
+                  <div className="flex">
+                    <span className="bg-green-200 p-2 rounded-lg">
+                      <PresentationChartBarIcon height={32} width={32} className="text-green-400 rounded-lg" />
+                    </span>
+                  </div>
+                  <p className="text-gray-700 font-semibold text-lg my-8">Rent a home</p>
+                  <p className="text-gray-500 w-4/5">
+                    We are creating a seemless online experience - from shopping on the largest rental network, to applying the hard rent 
+                  </p>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </HomeLayout>
