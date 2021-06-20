@@ -3,6 +3,7 @@ import Image from 'next/image'
 import profilePic from '../public/house3.png'
 import BigSearch from '../components/search/BigSearch'
 import {HomeIcon, CashIcon, PresentationChartBarIcon} from '@heroicons/react/outline'
+import banner from '../public/banner.jpg'
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
           </div>
         </div>
         <div className="min-h-screen mt-16">
-          <div className="self-center flex flex-col">
+          <div className="self-center flex h-full flex-col my-auto">
             <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">our services</p>
             <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
             <p className="text-4xl w-2/3 font-semibold self-center text-center text-gray-700 mb-24">We have a variety of listings and constant updates. 
@@ -64,6 +65,17 @@ export default function Home() {
                   </p>
                 </div>
             </div>
+          </div>
+        </div>
+        <div className="relative min-h-screen flex flex-col items-center overflow-hidden">
+          <div className="absolute my-auto rounded-lg overflow-hidden">
+            <div className="relative">
+              <Image src={banner} className="z-0  rounded-xl" alt="Picture of the author"/>
+              <div className="absolute"></div>
+            </div>
+          </div>
+          <div className="z-10 m-2 absolute self-end bg-white w-1/3 rounded-lg p-2 h-2/3">
+            some text
           </div>
         </div>
       </div>
