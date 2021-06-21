@@ -14,14 +14,6 @@ function HomeNavbar(props: Props): ReactElement {
     const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
     const [shadowOn, setShadowOn] = useState<boolean>(false)
 
-    // const nav_options = [
-    //     {
-    //         option: "i'm new here?",
-    //         id: "1",
-    //         location: '/becomeaseller'
-    //     }
-    // ]
-
     // put shadow on after scrolling down
     const toggleShadow = () => {
       if (window.scrollY >= 500) {
@@ -60,7 +52,9 @@ function HomeNavbar(props: Props): ReactElement {
             <ul className="flex flex-col lg:flex-row list-none lg:mr-auto">
               {
                 nav_options.left_options.map(option=>(
-                  <li className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}>{option.option}</li>
+                  <Link href={option.location}>
+                  <a className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}>{option.option}</a>
+                  </Link>
                 ))
               }
             </ul>
