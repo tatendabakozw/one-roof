@@ -1,7 +1,4 @@
 import React, {ReactElement, useState} from 'react'
-import house1 from '../../public/house-1.jpg'
-import image2 from '../../public/furniture.jpg'
-import Image from 'next/image'
 import {LocationMarkerIcon} from '@heroicons/react/outline'
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
@@ -14,9 +11,10 @@ function HouseItem():ReactElement {
     const [liked, setLiked] = useState(true)
     return (
         <div className="flex flex-col rounded-lg overflow-hidden shadow transition duration-100 transform hover:scale-105">
-            <div className="img overflow-hidden h-40">
-                <Image src={house1}   height={"full"} />
-            </div>
+            <div className="img overflow-hidden h-52" style={{
+                backgroundImage : "url('/house-1.jpg')",
+                backgroundSize: 'cover'
+            }}/>
             <div className="flex flex-row items-center py-2 px-4">
                 <div className="deta flex flex-row justify-start text-gray-500">
                     <span className="mr-2 flex flex-row items-center ">

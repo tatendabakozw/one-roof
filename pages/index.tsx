@@ -3,9 +3,7 @@ import Image from 'next/image'
 import profilePic from '../public/house3.png'
 import BigSearch from '../components/search/BigSearch'
 import {HomeIcon, CashIcon, PresentationChartBarIcon, ChevronRightIcon} from '@heroicons/react/outline'
-import banner from '../public/banner.jpg'
 import HouseItem from '../components/houseitem/HouseItem'
-// import './home.css'
 
 export default function Home() {
   return (
@@ -102,7 +100,7 @@ export default function Home() {
           <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">featured properties</p>
             <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
             <>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <div className="col-span-1">
                   <HouseItem/>
                 </div>
