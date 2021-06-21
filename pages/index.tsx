@@ -2,12 +2,13 @@ import HomeLayout from '../layouts/HomeLayout'
 import Image from 'next/image'
 import profilePic from '../public/house3.png'
 import BigSearch from '../components/search/BigSearch'
-import {HomeIcon, CashIcon, PresentationChartBarIcon} from '@heroicons/react/outline'
+import {HomeIcon, CashIcon, PresentationChartBarIcon, ChevronRightIcon} from '@heroicons/react/outline'
 import banner from '../public/banner.jpg'
+import HouseItem from '../components/houseitem/HouseItem'
 
 export default function Home() {
   return (
-    <HomeLayout page_title='Home' page_description="One roof market real estate platform">
+    <HomeLayout page_title='Home' page_description="One roof market real-estate platform home page">
       <div className="container items-center mx-auto">
         <div className="absolute right-0 bottom-0 z-10">
           <div className="flex flex-row">
@@ -67,6 +68,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className="relative min-h-screen flex flex-col items-center overflow-hidden">
           <div className="absolute my-auto rounded-2xl overflow-hidden">
             <div className="relative my-auto">
@@ -85,15 +87,36 @@ export default function Home() {
                 </div>
                 <p className="text-gray-500 ml-2 capitalize">discover houses</p>
                 <div className="flex-grow"></div>
-                <span className="flex-end text-right text-blue-900">
+                <span className="flex-end text-right text-blue-900 cursor-pointer hover:text-blue-800 flex flex-row items-center rounded-lg p-2 hover:bg-gray-100">
                   Next
+                  <ChevronRightIcon height={16} width={16} className="text-blue-800 rounded-lg" />
                 </span>
               </div>
-             
             </div>
           </div>
-
           </div>
+
+          <div className="new_listings min-h-screen flex flex-col">
+          <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">featured properties</p>
+            <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
+            <>
+              <div className="grid grid-cols-3 gap-16">
+                <div className="col-span-1">
+                  <HouseItem/>
+                </div>
+                <div className="col-span-1">
+                  <HouseItem/>
+                </div>
+                <div className="col-span-1">
+                  <HouseItem/>
+                </div>
+                <div className="col-span-1">
+                  <HouseItem/>
+                </div>
+              </div>
+            </>
+          </div>
+
       </div>
     </HomeLayout>
   )
