@@ -52,7 +52,7 @@ function HomeNavbar(props: Props): ReactElement {
             <ul className="flex flex-col lg:flex-row list-none lg:mr-auto">
               {
                 nav_options.left_options.map(option=>(
-                  <Link href={option.location}>
+                  <Link key={option.id} href={option.location}>
                   <a className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}>{option.option}</a>
                   </Link>
                 ))
