@@ -2,6 +2,7 @@ import React,{ReactElement} from 'react'
 import HomeLayout from '../../layouts/HomeLayout'
 import {SearchIcon} from '@heroicons/react/outline'
 import BuyHouseItem from '../../components/houseitem/BuyHouseItem'
+import Map from '../../components/map/Map'
 
 function index():ReactElement {
     return (
@@ -34,8 +35,8 @@ function index():ReactElement {
                             <BuyHouseItem/>
                         </div>
                     </div>
-                    <div className="col-span-1 bg-blue-600 h-full w-full rounded-xl">
-                        
+                    <div className="col-span-1 h-full w-full rounded-xl overflow-hidden">
+                        <Map/>
                     </div>
                 </div>
             </div>
