@@ -15,13 +15,16 @@ function index():ReactElement {
                             <input type="text" 
                                 className="bg-none border-none outline-none text-lg flex-grow p-4 bg-white rounded-full" 
                                 placeholder="School, Zip Code, Neighborhood, City" />
-                            <span className="bg-blue-900 p-5 cursor-pointer hover:bg-blue-800">
+                            <span className="bg-blue-900 p-6 cursor-pointer hover:bg-blue-800">
                                 <SearchIcon width={20} height={20} className="text-white" />
                             </span>
                         </div>
                         <div className="filter flex flex-row items-center border-gray-200 mb-8">
-                            <div className="p-2 border border-gray-300 rounded-full">
+                            <div className="p-2 border border-gray-300 rounded-full mr-2">
                                 <p className="text-gray-500 font-semibold">Any Price</p>
+                            </div>
+                            <div className="p-2 border border-gray-300 rounded-full mr-2">
+                                <p className="text-gray-500 font-semibold">London</p>
                             </div>
                             <div className="flex-grow"></div>
                             <div className="option flex flex-row items-center">
