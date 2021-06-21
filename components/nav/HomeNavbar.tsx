@@ -4,6 +4,7 @@ import Dropdown from '../dropdown/NavDropdown';
 import { Transition } from '@headlessui/react'
 import HomeSearch from '../search/HomeSearch';
 import MenuIcon from '@material-ui/icons/Menu'
+import nav_options from '../../helpers/nav_option'
 
 interface Props {
     transparent? : boolean
@@ -13,26 +14,13 @@ function HomeNavbar(props: Props): ReactElement {
     const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
     const [shadowOn, setShadowOn] = useState<boolean>(false)
 
-    const nav_options = [
-        {
-            option: "i'm new here?",
-            id: "1",
-            location: '/becomeaseller'
-        }
-    ]
-
-    const mobile_nav_options =[
-      {
-        option: "Log In",
-        id: "1",
-        location: '/auth/login'
-      },
-      {
-        option: "Sign Up",
-        id: "1",
-        location: '/auth/login'
-      }
-    ]
+    // const nav_options = [
+    //     {
+    //         option: "i'm new here?",
+    //         id: "1",
+    //         location: '/becomeaseller'
+    //     }
+    // ]
 
     // put shadow on after scrolling down
     const toggleShadow = () => {
@@ -69,6 +57,13 @@ function HomeNavbar(props: Props): ReactElement {
             </button>
           </div>
           <div className={"lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" + (navbarOpen ? " block rounded shadow-lg" : " hidden")}id="example-navbar-warning">
+            <ul className="flex flex-col lg:flex-row list-none lg:mr-auto">
+              {
+                nav_options.left_options.map(option=>(
+                  <li className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}>{option.option}</li>
+                ))
+              }
+            </ul>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                   <Transition
                     as={Fragment}
@@ -85,7 +80,7 @@ function HomeNavbar(props: Props): ReactElement {
                   </li>
                   </Transition>
                 {
-                    nav_options.map(option=>(
+                    nav_options.nav_options.map(option=>(
                         <li key={option.id} className="flex items-center">
                             <a
                             className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}
@@ -100,7 +95,7 @@ function HomeNavbar(props: Props): ReactElement {
                 <Dropdown/>
               </li>
 
-              {mobile_nav_options.map(option =>(
+              {nav_options.mobile_nav_options.map(option =>(
                 <li key={option.id} className="items-center lg:hidden md:hidden flex">
                     <a
                     className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase"}
