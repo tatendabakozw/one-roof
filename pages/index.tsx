@@ -5,6 +5,7 @@ import BigSearch from '../components/search/BigSearch'
 import {HomeIcon, CashIcon, PresentationChartBarIcon, ChevronRightIcon} from '@heroicons/react/outline'
 import banner from '../public/banner.jpg'
 import HouseItem from '../components/houseitem/HouseItem'
+// import './home.css'
 
 export default function Home() {
   return (
@@ -26,14 +27,14 @@ export default function Home() {
             </>
           </div>
         </div>
-        <div className="min-h-screen mt-16 flex flex-col items-center">
+        <div className="min-h-screen mt-16 flex flex-col items-center px-4">
           <div className="self-center flex h-full flex-col my-auto">
             <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">our services</p>
             <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
-            <p className="text-4xl w-2/3 font-semibold self-center text-center text-gray-700 mb-24">We have a variety of listings and constant updates. 
+            <p className="text-4xl md:w-2/3 w-full font-semibold self-center text-center text-gray-700 mb-24">We have a variety of listings and constant updates. 
               So you'll never miss out
             </p>
-            <div className="grid grid-cols-3 gap-16">
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-16 mb-16">
                 <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
                   <div className="flex">
                     <span className="bg-yellow-200 p-2 rounded-lg">
@@ -69,38 +70,39 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative min-h-screen flex flex-col items-center overflow-hidden">
-          <div className="absolute my-auto rounded-2xl overflow-hidden">
-            <div className="relative my-auto">
-              <Image src={banner} className="z-0  rounded-2xl" alt="Picture of the author"/>
-              <div className="absolute"></div>
-            </div>
-          </div>
-          <div className="z-10 m-2 absolute self-end flex flex-col bg-white shadow-lg right-32 w-1/3 rounded-2xl p-8 h-2/3">
-            <p className="w-2/3 text-gray-700 text-2xl font-semibold mb-16">Find a home just right for you</p>
-            <p className="text-gray-500 "> One Roof Market shows you a lot of houses near you. See homes on the market, or get a sneak peak at those that have yet to reach the market </p>
-            <div className="flex-grow flex-1" />
-            <div className="discover">
-              <div className="flex flex-row items-center w-full">
-                <div className=" nox p-2 border-2 border-gray-300 rounded-lg">
-                  <p className="text-gray-400">1/4</p>
+        <div className="min-h-screen flex flex-col items-center overflow-hidden">
+          <div className="banner md:h-full h-[150] w-full my-auto rounded-2xl p-2 flex flex-col overflow-hidden" style={{
+              backgroundImage: "url('/banner.jpg')",
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover'
+            }} >
+             <div className="self-end flex flex-col bg-white shadow-lg right-32 md:w-1/3 w-full rounded-2xl p-16 md:h-2/3 h-full">
+                <p className="w-2/3 text-gray-700 text-2xl font-semibold mb-8">Find a home just right for you</p>
+                <p className="text-gray-500 mb-32"> One Roof Market shows you a lot of houses near you. See homes on the market, or get a sneak peak at those that have yet to reach the market </p>
+                <div className="flex-grow flex-1"></div>
+                <div className="discover">
+                  <div className="flex flex-row items-center w-full">
+                    <div className=" nox p-2 border-2 border-gray-300 rounded-lg">
+                      <p className="text-gray-400">1/4</p>
+                    </div>
+                    <p className="text-gray-500 ml-2 capitalize">discover houses</p>
+                    <div className="flex-grow flex-1"></div>
+                    <span className="flex-end text-right text-blue-900 cursor-pointer hover:text-blue-800 flex flex-row items-center rounded-lg p-2 hover:bg-gray-100">
+                      Next
+                      <ChevronRightIcon height={16} width={16} className="text-blue-800 rounded-lg" />
+                    </span>
+                  </div>
                 </div>
-                <p className="text-gray-500 ml-2 capitalize">discover houses</p>
-                <div className="flex-grow"></div>
-                <span className="flex-end text-right text-blue-900 cursor-pointer hover:text-blue-800 flex flex-row items-center rounded-lg p-2 hover:bg-gray-100">
-                  Next
-                  <ChevronRightIcon height={16} width={16} className="text-blue-800 rounded-lg" />
-                </span>
               </div>
-            </div>
           </div>
+         
           </div>
 
-          <div className="new_listings min-h-screen flex flex-col">
+          <div className="new_listings min-h-screen flex flex-col px-4">
           <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">featured properties</p>
             <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
             <>
-              <div className="grid grid-cols-3 gap-16">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="col-span-1">
                   <HouseItem/>
                 </div>

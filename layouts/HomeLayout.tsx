@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react'
 import Head from 'next/head'
 import HomeNavbar from '../components/nav/HomeNavbar'
+import Footer from '../components/nav/Footer'
 
 interface Props{
     children: JSX.Element[] | JSX.Element;
@@ -26,7 +27,7 @@ function HomeLayout(props: Props):ReactElement {
                 </main>
 
                 <footer className={`footer`}>
-                    <p>The footer</p>
+                    {/* <Footer/> */}       
                 </footer>
             </body>
         </>         
