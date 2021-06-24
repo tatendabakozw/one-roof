@@ -1,27 +1,45 @@
-import React, {ReactElement, useState} from 'react'
+import React, {ReactElement} from 'react'
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import LocalHotelRoundedIcon from '@material-ui/icons/LocalHotelRounded';
 import BathtubRoundedIcon from '@material-ui/icons/BathtubRounded';
 import AspectRatioRoundedIcon from '@material-ui/icons/AspectRatioRounded';
+import { useRouter } from 'next/router'
 
 interface Props{
-    owner?: string,
-    address?: string,
-    picture?: string,
-    price?: string,
-    rooms?: string,
-    toilets?: string,
-    area?: string,
-    id?: number
+    owner: string,
+    address: string,
+    picture: string,
+    price: string,
+    rooms: string,
+    toilets: string,
+    area: string,
+    id: number,
+    liked: boolean
 }
 
-function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id}:Props):ReactElement {
+function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id, liked}:Props):ReactElement {
+    const router = useRouter()
 
-    const [liked, setLiked] = useState(true)
+    const setDetails = (e: any) =>{
+        e.preventDefault()
+        const house_details = {
+            owner,
+            address,
+            picture,
+            price,
+            rooms,
+            toilets,
+            area,
+            id,
+            liked
+        }
+        localStorage.setItem('oneroof_house_details', JSON.stringify(house_details))
+        router.push('/details')
+    }
 
     return (
-        <div className="bg-white hover:shadow-lg w-full rounded-xl h-52 cursor-pointer p-4 grid grid-cols-5 gap-8 mb-8 transition duration-100 transform hover:scale-105">
+        <span onClick={setDetails} className="bg-white hover:shadow-lg w-full rounded-xl h-52 cursor-pointer p-4 grid grid-cols-5 gap-8 mb-8 transition duration-100 transform hover:scale-105">
             <div className="col-span-2 rounded-xl w-full h-full"
                 style={{
                     backgroundImage: `url(${picture})`,
@@ -63,7 +81,7 @@ function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id}
                 </div>
             </div>
             </div>
-        </div>
+        </span>
     )
 }
 

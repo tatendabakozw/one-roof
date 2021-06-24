@@ -10,12 +10,13 @@ function index():ReactElement {
         {
             owner: 'Tatenda Bako',
             address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
-            picture : '/furniture.jpg',
+            picture : '/home2.jpg',
             price: '1.500',
             rooms: '3',
             toilets: '4',
             area: '4sqrm',
-            _id: 1
+            _id: 1,
+            liked: true
         },
         {
             owner: 'Tatenda Bako',
@@ -25,7 +26,8 @@ function index():ReactElement {
             rooms: '3',
             toilets: '4',
             area: '4sqrm',
-            _id: 2
+            _id: 2,
+            liked: false
         }
     ]
 
@@ -57,20 +59,9 @@ function index():ReactElement {
                             </div>
                         </div>
                         <div className="houses">
-
-                                    <BuyHouseItem
-                                        owner={'house.owner'}
-                                        address={'house.address'}
-                                        picture={'/home2.jpg'}
-                                        price={'house.price'}
-                                        rooms={'house.rooms'}
-                                        toilets={'house.toilets'}
-                                        area={'house.toilets'}
-                                        id={1}
-                                    />
                             
                             {
-                                house_details.map(house =>{
+                                house_details.map(house =>(
                                     <BuyHouseItem
                                         owner={house.owner}
                                         address={house.address}
@@ -80,8 +71,10 @@ function index():ReactElement {
                                         toilets={house.toilets}
                                         area={house.toilets}
                                         id={house._id}
+                                        liked={house.liked}
+                                        
                                     />
-                                })
+                                ))
                             }
                         </div>
                     </div>
