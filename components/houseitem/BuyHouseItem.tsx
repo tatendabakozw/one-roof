@@ -15,7 +15,8 @@ interface Props{
     toilets: string,
     area: string,
     id: number,
-    liked: boolean
+    liked: boolean,
+    details: string
 }
 
 function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id, liked}:Props):ReactElement {

@@ -16,7 +16,8 @@ function index():ReactElement {
             toilets: '4',
             area: '4sqrm',
             _id: 1,
-            liked: true
+            liked: true,
+            details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et blanditiis a fuga ex perferendis quidem eum earum accusamus excepturi. Modi adipisci amet doloremque ullam accusantium iure dolorem natus delectus!"
         },
         {
             owner: 'Tatenda Bako',
@@ -27,7 +28,8 @@ function index():ReactElement {
             toilets: '4',
             area: '4sqrm',
             _id: 2,
-            liked: false
+            liked: false,
+            details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et blanditiis a fuga ex perferendis quidem eum earum accusamus excepturi. Modi adipisci amet doloremque ullam accusantium iure dolorem natus delectus!"
         }
     ]
 
@@ -72,6 +74,7 @@ function index():ReactElement {
                                         area={house.toilets}
                                         id={house._id}
                                         liked={house.liked}
+                                        details={house.details}
                                         
                                     />
                                 ))
