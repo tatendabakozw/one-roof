@@ -70,7 +70,7 @@ export default function Home() {
 
         <div className="min-h-screen flex flex-col items-center overflow-hidden">
         <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">One Roof Market</p>
-            <div className="w-14 border-b-2 border-blue-900 self-center mb-8"></div>
+            <div className="w-14 border-b-2 border-blue-900 self-center"></div>
           <div className="banner md:h-full h-[150] w-full my-auto rounded-2xl p-2 flex flex-col overflow-hidden" style={{
               backgroundImage: "url('/banner.jpg')",
               backgroundRepeat: 'no-repeat',

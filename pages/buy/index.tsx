@@ -5,6 +5,30 @@ import BuyHouseItem from '../../components/houseitem/BuyHouseItem'
 import Map from '../../components/map/Map'
 
 function index():ReactElement {
+
+    const house_details =[
+        {
+            owner: 'Tatenda Bako',
+            address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
+            picture : '/furniture.jpg',
+            price: '1.500',
+            rooms: '3',
+            toilets: '4',
+            area: '4sqrm',
+            _id: 1
+        },
+        {
+            owner: 'Tatenda Bako',
+            address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
+            picture : '/furniture.jpg',
+            price: '1.500',
+            rooms: '3',
+            toilets: '4',
+            area: '4sqrm',
+            _id: 2
+        }
+    ]
+
     return (
         <HomeLayout page_title="Buy a house">
             <div className="px-16">
@@ -15,7 +39,7 @@ function index():ReactElement {
                             <input type="text" 
                                 className="bg-none border-none outline-none text-lg flex-grow p-4 bg-white rounded-full" 
                                 placeholder="School, Zip Code, Neighborhood, City" />
-                            <span className="bg-blue-900 p-6 cursor-pointer hover:bg-blue-800">
+                            <span className="bg-blue-900 p-5 cursor-pointer rounded-r-full hover:bg-blue-800">
                                 <SearchIcon width={20} height={20} className="text-white" />
                             </span>
                         </div>
@@ -33,13 +57,38 @@ function index():ReactElement {
                             </div>
                         </div>
                         <div className="houses">
-                            <BuyHouseItem/>
-                            <BuyHouseItem/>
-                            <BuyHouseItem/>
+
+                                    <BuyHouseItem
+                                        owner={'house.owner'}
+                                        address={'house.address'}
+                                        picture={'/home2.jpg'}
+                                        price={'house.price'}
+                                        rooms={'house.rooms'}
+                                        toilets={'house.toilets'}
+                                        area={'house.toilets'}
+                                        id={1}
+                                    />
+                            
+                            {
+                                house_details.map(house =>{
+                                    <BuyHouseItem
+                                        owner={house.owner}
+                                        address={house.address}
+                                        picture={house.picture}
+                                        price={house.price}
+                                        rooms={house.rooms}
+                                        toilets={house.toilets}
+                                        area={house.toilets}
+                                        id={house._id}
+                                    />
+                                })
+                            }
                         </div>
                     </div>
-                    <div className="col-span-1 h-full w-full rounded-xl overflow-hidden">
-                        <Map/>
+                    <div className="relative z-0 col-span-1 h-full w-full rounded-xl overflow-hidden">
+                        <div className="fixed rounded-xl overflow-hidden">
+                            <Map/>
+                        </div>
                     </div>
                 </div>
             </div>

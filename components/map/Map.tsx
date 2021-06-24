@@ -9,8 +9,8 @@ interface Props{
 
 function Map(props: Props) {
   const [viewport, setViewport] = useState({
-    width: 900,
-    height: 1000,
+    width: 800,
+    height: 800,
     latitude: 37.7577,
     longitude: -122.4376,
     zoom: 8

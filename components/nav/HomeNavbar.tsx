@@ -5,6 +5,7 @@ import { Transition } from '@headlessui/react'
 import HomeSearch from '../search/HomeSearch';
 import MenuIcon from '@material-ui/icons/Menu'
 import nav_options from '../../helpers/nav_option'
+import { useRouter } from 'next/dist/client/router';
 
 interface Props {
     transparent? : boolean
@@ -13,6 +14,13 @@ interface Props {
 function HomeNavbar(props: Props): ReactElement {
     const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
     const [shadowOn, setShadowOn] = useState<boolean>(false)
+    const router = useRouter();
+
+    //setting current path
+    const [currentPath, setCurrentPath] = React.useState('');
+    useEffect(() => setCurrentPath(router.pathname),[]);
+
+    console.log(currentPath)
 
     // put shadow on after scrolling down
     const toggleShadow = () => {
@@ -29,7 +37,6 @@ function HomeNavbar(props: Props): ReactElement {
 
     return (
         <nav  className={`${shadowOn ? 'shadow-lg fixed mb-16 transition duration-1500 ease-in-out' : 'shadow-none'} + w-full z-50 bg-white flex flex-wrap items-center justify-between px-2 py-4 navbar-expand-lg`}>
-
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               
@@ -53,7 +60,9 @@ function HomeNavbar(props: Props): ReactElement {
               {
                 nav_options.left_options.map(option=>(
                   <Link key={option.id} href={option.location}>
-                  <a className={"lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold"}>{option.option}</a>
+                    <span className={`${option.location === currentPath ? 'border-b-2 border-blue-900 cursor-pointer' : "border-none cursor-pointer"}`}>
+                      <a className={` lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold`}>{option.option}</a>
+                    </span>
                   </Link>
                 ))
               }
