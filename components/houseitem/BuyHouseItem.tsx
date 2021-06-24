@@ -35,7 +35,7 @@ function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id,
             liked
         }
         localStorage.setItem('oneroof_house_details', JSON.stringify(house_details))
-        router.push('/details')
+        router.push('/housedetails')
     }
 
     return (

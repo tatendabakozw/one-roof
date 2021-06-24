@@ -1,10 +1,11 @@
 import React, {ReactElement} from 'react'
+import HomeLayout from '../../layouts/HomeLayout'
 
-function index():ReactElement {
+function index():ReactElement{
     return (
-        <div>
-            <p>house details</p>
-        </div>
+        <HomeLayout page_title="House Details">
+            <div>house details</div>
+        </HomeLayout>
     )
 }
 
