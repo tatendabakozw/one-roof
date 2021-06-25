@@ -65,6 +65,7 @@ function index():ReactElement {
                             {
                                 house_details.map(house =>(
                                     <BuyHouseItem
+                                        key={house._id}
                                         owner={house.owner}
                                         address={house.address}
                                         picture={house.picture}

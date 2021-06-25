@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function index():ReactElement{
+function HouseDetails():ReactElement{
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
@@ -179,4 +179,4 @@ function index():ReactElement{
     )
 }
 
-export default index
+export default HouseDetails

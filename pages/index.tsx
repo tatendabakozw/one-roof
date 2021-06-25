@@ -29,8 +29,7 @@ export default function Home() {
           <div className="self-center flex h-full flex-col my-auto">
             <p className="text-gray-500 uppercase self-center text-center text-lg mb-2">our services</p>
             <div className="w-14 border-b-2 border-blue-900 self-center mb-16"></div>
-            <p className="text-4xl md:w-2/3 w-full font-semibold self-center text-center text-gray-700 mb-24">We have a variety of listings and constant updates. 
-              So you'll never miss out
+            <p className="text-4xl md:w-2/3 w-full font-semibold self-center text-center text-gray-700 mb-24">{"We have a variety of listings and constant updates. So you'll never miss out"}
             </p>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-16 mb-16">
                 <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
@@ -49,9 +48,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="text-gray-700 font-semibold text-lg my-8">Sell a home</p>
-                  <p className="text-gray-500 w-4/5">
-                    Whether you sell with new One Roof Market or take another approach, we'll help you navigate the path to a successful sale.
-                  </p>
+                  <p className="text-gray-500 w-4/5">{"Whether you sell with new One Roof Market or take another approach, we'll help you navigate the path to a successful sale."} </p>
                 </div>
                 <div className="col-span-1 p-8 rounded-lg shadow transition duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
                   <div className="flex">
