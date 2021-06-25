@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from 'react'
 import HomeLayout from '../../../layouts/HomeLayout'
 
-function signup():ReactElement {
+function Signup():ReactElement {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -55,4 +55,4 @@ function signup():ReactElement {
     )
 }
 
-export default signup
+export default Signup

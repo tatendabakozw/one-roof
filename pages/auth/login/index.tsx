@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from 'react'
 import HomeLayout from '../../../layouts/HomeLayout'
 
-function login():ReactElement {
+function Login():ReactElement {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -55,4 +55,4 @@ function login():ReactElement {
     )
 }
 
-export default login
+export default Login
