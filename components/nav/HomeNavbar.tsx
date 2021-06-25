@@ -18,7 +18,7 @@ function HomeNavbar(props: Props): ReactElement {
 
     //setting current path
     const [currentPath, setCurrentPath] = React.useState('');
-    useEffect(() => setCurrentPath(router.pathname),[]);
+    useEffect(() => setCurrentPath(router.pathname),[router.pathname]);
 
     console.log(currentPath)
 
@@ -59,7 +59,7 @@ function HomeNavbar(props: Props): ReactElement {
             <ul className="flex flex-col lg:flex-row list-none lg:mr-auto">
               {
                 nav_options.left_options.map(option=>(
-                  <Link key={option.id} href={option.location}>
+                  <Link key={option.id} href={option.location} passHref>
                     <span className={`${option.location === currentPath ? 'border-b-2 border-blue-900 cursor-pointer' : "border-none cursor-pointer"}`}>
                       <a className={` lg:text-blue-900 lg:hover:bg-gray-100 py-3 px-4 mr-2 rounded-full text-blue-900 hover:bg-gray-100 flex items-center text-sm uppercase font-semibold`}>{option.option}</a>
                     </span>
