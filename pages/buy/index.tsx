@@ -75,14 +75,13 @@ function index():ReactElement {
                                         id={house._id}
                                         liked={house.liked}
                                         details={house.details}
-                                        
                                     />
                                 ))
                             }
                         </div>
                     </div>
                     <div className="relative z-0 col-span-1 h-full w-full rounded-xl overflow-hidden">
-                        <div className="fixed rounded-xl overflow-hidden">
+                        <div className="fixed rounded-xl overflow-hidden bg-gray-100">
                             <Map/>
                         </div>
                     </div>
