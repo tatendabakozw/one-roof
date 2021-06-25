@@ -9,9 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import FeatureItem from '../../components/FeatureItem/FeatureItem';
 import SmallImage from '../../components/SmallImage/SmallImage';
 import DetailComponent from '../../components/DetailComponent/DetailComponent';
+import Image from 'next/image'
 
 const housePics = ['/house-1.jpg', '/house2b.jpg', '/furniture.jpg', '/home2.jpg', '/house3.jpg', '/chairs.jpg']
-const features = ['5000l tank', 'geiser']
+const features = [{item:'5000l tank',id: 1,},{item:'geiser',id:2}]
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -58,7 +59,8 @@ function HouseDetails():ReactElement{
                 <div className="flex flex-row items-center mb-8">
                     {features.map(feature => (
                         <FeatureItem
-                            feature={feature}
+                            key={feature.id}
+                            feature={feature.item}
                         />
                     ))}
                 </div>
@@ -78,7 +80,7 @@ function HouseDetails():ReactElement{
                             aria-describedby="simple-modal-description"
                         >
                             <div style={modalStyle} className={classes.paper}>
-                                <img src={housePics[0]} alt="" className="w-full" />
+                                <Image height="500" width="800" src={housePics[0]} alt="" className="w-full" />
                             </div >
                         </Modal>
                         {housePics.length <= 5 ? (
