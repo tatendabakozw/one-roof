@@ -1,6 +1,7 @@
 import React from 'react'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
+import Image from 'next/image'
 
 interface Props{
     className?: any,
@@ -65,7 +66,7 @@ const SmallImage = ({ className, picture }:Props) => {
                 aria-describedby="simple-modal-description"
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <img src={picture} alt="" className="w-full"/>
+                    <Image height='500' width='800' src={picture} alt="" className="w-full"/>
                 </div >
             </Modal>
         </>
