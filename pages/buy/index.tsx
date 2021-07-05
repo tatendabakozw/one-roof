@@ -5,12 +5,21 @@ import BuyHouseItem from '../../components/houseitem/BuyHouseItem'
 import Map from '../../components/map/Map'
 import GridOnOutlinedIcon from '@material-ui/icons/GridOnOutlined';
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
+import GridHouseItem from '../../components/houseitem/GridHouseItem'
 
 function index():ReactElement {
-    const [toggle_view, setToggleView] = useState('list')
+    const [view_mode, setToggleView] = useState('list')
 
-    const toggle_view_mode = (e) =>{
+    const toggle_list_mode = (e: any) =>{
         e.preventDefault()
+        setToggleView("list")
+        localStorage.setItem('view_mode', view_mode)
+    }
+
+    const toggle_grid_mode = (e:any) =>{
+        e.preventDefault()
+        setToggleView('grid')
+        localStorage.setItem('view_mode', view_mode)
     }
 
     const house_details =[
@@ -64,12 +73,14 @@ function index():ReactElement {
                             <div className="flex-grow"></div>
                             <div className="option flex flex-row items-center">
                                 <div className="flex flex-row items-center mr-4">
-                                    <span className="cursor-pointer text-gray-500 mr-2">
+                                   
+                                    <span onClick={toggle_list_mode} className={`${view_mode=== "list" ? "text-blue-400" : "text-gray-400" } cursor-pointer  mr-2`}>
                                         <FormatListBulletedOutlinedIcon className="" fontSize="small" />
                                     </span>
-                                    <span className="cursor-pointer text-blue-400">
+                                    <span onClick={toggle_grid_mode} className={`${view_mode=== "grid" ? "text-blue-400" : "text-gray-400" } cursor-pointer  mr-2`}>
                                         <GridOnOutlinedIcon className="" fontSize="small"/>
                                     </span>
+                                  
                                 </div>
                                 <p className="text-gray-400">Sort By:</p>
                                 <p className="text-gray-700">Price</p>
@@ -78,21 +89,45 @@ function index():ReactElement {
                         <div className="houses">
                             
                             {
-                                house_details.map(house =>(
-                                    <BuyHouseItem
-                                        key={house._id}
-                                        owner={house.owner}
-                                        address={house.address}
-                                        pictures={house.pictures}
-                                        price={house.price}
-                                        rooms={house.rooms}
-                                        toilets={house.toilets}
-                                        area={house.toilets}
-                                        id={house._id}
-                                        liked={house.liked}
-                                        details={house.details}
-                                    />
-                                ))
+                                view_mode === "list" ? (
+                                    <div className="flex flex-col">
+                                        { house_details.map(house =>(
+                                            <BuyHouseItem
+                                                key={house._id}
+                                                owner={house.owner}
+                                                address={house.address}
+                                                pictures={house.pictures}
+                                                price={house.price}
+                                                rooms={house.rooms}
+                                                toilets={house.toilets}
+                                                area={house.toilets}
+                                                id={house._id}
+                                                liked={house.liked}
+                                                details={house.details}
+                                            />
+                                        ))}
+                                    </div>
+                                ):(
+                                    <div className="grid grid-cols-2 gap-8">
+                                        {
+                                             house_details.map(house =>(
+                                                <GridHouseItem
+                                                    key={house._id}
+                                                    owner={house.owner}
+                                                    address={house.address}
+                                                    pictures={house.pictures}
+                                                    price={house.price}
+                                                    rooms={house.rooms}
+                                                    toilets={house.toilets}
+                                                    area={house.toilets}
+                                                    id={house._id}
+                                                    liked={house.liked}
+                                                    details={house.details}
+                                                />
+                                            ))
+                                        }
+                                    </div>
+                                )
                             }
                         </div>
                     </div>
