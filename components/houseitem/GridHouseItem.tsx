@@ -23,7 +23,7 @@ function GridHouseItem({owner, address, pictures, price, rooms, toilets, area, i
     // const [liked, setLiked] = useState(true)
     return (
         <div className="flex flex-col rounded-lg overflow-hidden shadow transition duration-100 transform hover:scale-105">
-            <div className="img overflow-hidden h-52" style={{
+            <div className="img overflow-hidden md:h-52 h-32" style={{
                 backgroundImage : `url(${pictures[0]})`,
                 backgroundSize: 'cover'
             }}/>

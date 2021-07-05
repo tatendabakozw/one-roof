@@ -1,4 +1,4 @@
-import React,{ReactElement, useState} from 'react'
+import React,{ReactElement, useEffect, useState} from 'react'
 import HomeLayout from '../../layouts/HomeLayout'
 import {SearchIcon} from '@heroicons/react/outline'
 import ListHouseItem from '../../components/houseitem/ListHouseItem'
@@ -8,18 +8,18 @@ import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBullete
 import GridHouseItem from '../../components/houseitem/GridHouseItem'
 
 function index():ReactElement {
-    const [view_mode, setToggleView] = useState('list')
+    const [view_mode, setToggleView] = useState<any>('')
 
     const toggle_list_mode = (e: any) =>{
         e.preventDefault()
         setToggleView("list")
-        localStorage.setItem('view_mode', view_mode)
+        localStorage.setItem('view_mode', 'list')
     }
 
     const toggle_grid_mode = (e:any) =>{
         e.preventDefault()
         setToggleView('grid')
-        localStorage.setItem('view_mode', view_mode)
+        localStorage.setItem('view_mode', 'grid')
     }
 
     const house_details =[
@@ -46,13 +46,31 @@ function index():ReactElement {
             _id: 2,
             liked: false,
             details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et blanditiis a fuga ex perferendis quidem eum earum accusamus excepturi. Modi adipisci amet doloremque ullam accusantium iure dolorem natus delectus!"
+        },
+        {
+            owner: 'Tatenda Bako',
+            address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
+            pictures : [ '/house2b.png', '/furniture.jpg', '/home2.jpg', '/house3.jpg', '/chairs.jpg', '/house-1.jpg',],
+            price: '1.500',
+            rooms: '3',
+            toilets: '4',
+            area: '4sqrm',
+            _id: 3,
+            liked: false,
+            details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et blanditiis a fuga ex perferendis quidem eum earum accusamus excepturi. Modi adipisci amet doloremque ullam accusantium iure dolorem natus delectus!"
         }
     ]
 
+    useEffect(()=>{
+        view_mode === '' ? localStorage.setItem('view_mode', 'list') : localStorage.setItem('view_mode', view_mode)
+        setToggleView(localStorage.getItem('view_mode'))
+        console.log(view_mode)
+    },[])
+
     return (
         <HomeLayout page_title="Buy a house">
-            <div className="px-16">
-                <div className="grid grid-cols-2 gap-16 min-h-screen">
+            <div className="md:px-16 px-4">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-16 min-h-screen">
                     <div className="col-span-1 h-full w-full rounded-xl flex flex-col">
                         <p className="text-gray-500 mb-4">10 results</p>
                         <div className="input border border-gray-300 w-full rounded-full flex flex-row items-center bg-white overflow-hidden mb-8">
@@ -131,8 +149,8 @@ function index():ReactElement {
                             }
                         </div>
                     </div>
-                    <div className="relative z-0 col-span-1 h-full w-full rounded-xl overflow-hidden">
-                        <div className="fixed rounded-xl overflow-hidden bg-gray-100">
+                    <div className="md:flex hidden z-0 col-span-1 h-full w-full rounded-xl overflow-hidden">
+                        <div className="rounded-xl overflow-hidden bg-gray-100">
                             <Map/>
                         </div>
                     </div>

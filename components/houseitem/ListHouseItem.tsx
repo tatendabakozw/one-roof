@@ -40,7 +40,7 @@ function ListHouseItem({owner, address, pictures, price, rooms, toilets, area, i
     }
 
     return (
-        <span onClick={setDetails} className="bg-white hover:shadow-lg w-full rounded-xl h-52 cursor-pointer p-4 grid grid-cols-5 gap-8 mb-8 transition duration-100 transform hover:scale-105">
+        <span onClick={setDetails} className="bg-white hover:shadow-lg w-full rounded-xl md:h-52 h-42 cursor-pointer p-4 grid grid-cols-5 gap-8 mb-8 transition duration-100 transform hover:scale-105">
             <div className="col-span-2 rounded-xl w-full h-full"
                 style={{
                     backgroundImage: `url(${pictures[0]})`,
@@ -50,8 +50,8 @@ function ListHouseItem({owner, address, pictures, price, rooms, toilets, area, i
             ></div>
             <div className="col-span-3 flex flex-col overflow-ellipsis">
                 <p className="text-gray-400 text-sm mb-2">{owner}</p>
-                <p className="text-gray-700 text-xl mb-8 truncate">{address}</p>
-                <p className="text-gray-500"><span className="text-gray-700 font-semibold text-lg mb-8">${price}</span> / year</p>
+                <p className="text-gray-700 md:text-xl text-md md:mb-8 mb-4 truncate">{address}</p>
+                <p className="text-gray-500"><span className="text-gray-700 font-semibold text-lg md:mb-8 mb-4">${price}</span> / year</p>
 
                 <div className="flex flex-row items-center mt-4">
                 <div className="deta flex flex-row justify-start text-gray-500">
