@@ -1,7 +1,7 @@
 import React,{ReactElement, useState} from 'react'
 import HomeLayout from '../../layouts/HomeLayout'
 import {SearchIcon} from '@heroicons/react/outline'
-import BuyHouseItem from '../../components/houseitem/BuyHouseItem'
+import ListHouseItem from '../../components/houseitem/ListHouseItem'
 import Map from '../../components/map/Map'
 import GridOnOutlinedIcon from '@material-ui/icons/GridOnOutlined';
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
@@ -92,7 +92,7 @@ function index():ReactElement {
                                 view_mode === "list" ? (
                                     <div className="flex flex-col">
                                         { house_details.map(house =>(
-                                            <BuyHouseItem
+                                            <ListHouseItem
                                                 key={house._id}
                                                 owner={house.owner}
                                                 address={house.address}

@@ -19,7 +19,7 @@ interface Props{
     details: string
 }
 
-function BuyHouseItem({owner, address, pictures, price, rooms, toilets, area, id, liked}:Props):ReactElement {
+function ListHouseItem({owner, address, pictures, price, rooms, toilets, area, id, liked}:Props):ReactElement {
     const router = useRouter()
 
     const setDetails = (e: any) =>{
@@ -86,4 +86,4 @@ function BuyHouseItem({owner, address, pictures, price, rooms, toilets, area, id
     )
 }
 
-export default BuyHouseItem
+export default ListHouseItem
