@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 interface Props{
     owner: string,
     address: string,
-    picture: string,
+    pictures: any,
     price: string,
     rooms: string,
     toilets: string,
@@ -19,7 +19,7 @@ interface Props{
     details: string
 }
 
-function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id, liked}:Props):ReactElement {
+function BuyHouseItem({owner, address, pictures, price, rooms, toilets, area, id, liked}:Props):ReactElement {
     const router = useRouter()
 
     const setDetails = (e: any) =>{
@@ -27,7 +27,7 @@ function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id,
         const house_details = {
             owner,
             address,
-            picture,
+            pictures,
             price,
             rooms,
             toilets,
@@ -43,7 +43,7 @@ function BuyHouseItem({owner, address, picture, price, rooms, toilets, area, id,
         <span onClick={setDetails} className="bg-white hover:shadow-lg w-full rounded-xl h-52 cursor-pointer p-4 grid grid-cols-5 gap-8 mb-8 transition duration-100 transform hover:scale-105">
             <div className="col-span-2 rounded-xl w-full h-full"
                 style={{
-                    backgroundImage: `url(${picture})`,
+                    backgroundImage: `url(${pictures[0]})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover'
                 }}

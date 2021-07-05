@@ -1,16 +1,23 @@
-import React,{ReactElement} from 'react'
+import React,{ReactElement, useState} from 'react'
 import HomeLayout from '../../layouts/HomeLayout'
 import {SearchIcon} from '@heroicons/react/outline'
 import BuyHouseItem from '../../components/houseitem/BuyHouseItem'
 import Map from '../../components/map/Map'
+import GridOnOutlinedIcon from '@material-ui/icons/GridOnOutlined';
+import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
 
 function index():ReactElement {
+    const [toggle_view, setToggleView] = useState('list')
+
+    const toggle_view_mode = (e) =>{
+        e.preventDefault()
+    }
 
     const house_details =[
         {
             owner: 'Tatenda Bako',
             address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
-            picture : '/home2.jpg',
+            pictures : ['/house-1.jpg', '/house2b.jpg', '/furniture.png', '/home2.jpg', '/house3.jpg', '/chairs.jpg'],
             price: '1.500',
             rooms: '3',
             toilets: '4',
@@ -22,7 +29,7 @@ function index():ReactElement {
         {
             owner: 'Tatenda Bako',
             address:'Eastgate Centre, Robert Mugabe Rd, Harare, Zimbabwe',
-            picture : '/furniture.jpg',
+            pictures : [ '/house2b.png', '/furniture.jpg', '/home2.jpg', '/house3.jpg', '/chairs.jpg', '/house-1.jpg',],
             price: '1.500',
             rooms: '3',
             toilets: '4',
@@ -56,6 +63,14 @@ function index():ReactElement {
                             </div>
                             <div className="flex-grow"></div>
                             <div className="option flex flex-row items-center">
+                                <div className="flex flex-row items-center mr-4">
+                                    <span className="cursor-pointer text-gray-500 mr-2">
+                                        <FormatListBulletedOutlinedIcon className="" fontSize="small" />
+                                    </span>
+                                    <span className="cursor-pointer text-blue-400">
+                                        <GridOnOutlinedIcon className="" fontSize="small"/>
+                                    </span>
+                                </div>
                                 <p className="text-gray-400">Sort By:</p>
                                 <p className="text-gray-700">Price</p>
                             </div>
@@ -68,7 +83,7 @@ function index():ReactElement {
                                         key={house._id}
                                         owner={house.owner}
                                         address={house.address}
-                                        picture={house.picture}
+                                        pictures={house.pictures}
                                         price={house.price}
                                         rooms={house.rooms}
                                         toilets={house.toilets}

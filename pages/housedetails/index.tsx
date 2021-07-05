@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react'
+import React, {ReactElement, useEffect, useState} from 'react'
 import HomeLayout from '../../layouts/HomeLayout'
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import AspectRatioOutlinedIcon from '@material-ui/icons/AspectRatioOutlined';
@@ -11,7 +11,7 @@ import SmallImage from '../../components/SmallImage/SmallImage';
 import DetailComponent from '../../components/DetailComponent/DetailComponent';
 import Image from 'next/image'
 
-const housePics = ['/house-1.jpg', '/house2b.jpg', '/furniture.jpg', '/home2.jpg', '/house3.jpg', '/chairs.jpg']
+const housePics = ['/house-1.jpg', '/house2b.png', '/furniture.jpg', '/home2.jpg', '/house3.jpg', '/chairs.jpg']
 const features = [{item:'5000l tank',id: 1,},{item:'geiser',id:2}]
 
 function rand() {
@@ -44,6 +44,8 @@ function HouseDetails():ReactElement{
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
+    const [currentHouse, setCurrentHouse] = useState<any>()
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -52,6 +54,14 @@ function HouseDetails():ReactElement{
     const handleClose = () => {
         setOpen(false);
     };
+
+    useEffect(()=>{
+        const current_house = localStorage.getItem('oneroof_house_details')
+        setCurrentHouse(current_house)
+        
+    },[])
+
+
     return (
         <HomeLayout page_title="House Details">
              <div className="propertydetails px-32 py-8">
