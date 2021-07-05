@@ -50,7 +50,7 @@ const SmallImage = ({ className, picture }:Props) => {
 
     return (
         <>
-            <span onClick={handleOpen} className={` ${className} cursor-pointer small bg-green-300 h-30 rounded-xl`}
+            <span onClick={handleOpen} className={` ${className} cursor-pointer small bg-green-300 h-30 w-full rounded-xl`}
                 style={{
                     backgroundImage: `url(${picture})`,
                     backgroundRepeat: 'no-repeat',

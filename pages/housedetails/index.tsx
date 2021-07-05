@@ -19,8 +19,8 @@ function rand() {
 }
 
 function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50
+    const left = 50
 
     return {
         top: `${top}%`,
@@ -32,11 +32,11 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
-        // width: 400,
-        // backgroundColor: theme.palette.background.paper,
-        // border: '2px solid #000',
-        // boxShadow: theme.shadows[5],
-        // padding: theme.spacing(2, 4, 3),
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
     },
 }));
 
@@ -64,7 +64,7 @@ function HouseDetails():ReactElement{
 
     return (
         <HomeLayout page_title="House Details">
-             <div className="propertydetails px-32 py-8">
+             <div className="propertydetails md:px-32 px-4 py-8">
                 <p className="text-2xl text-gray-800 mb-4 font-semibold">Details of property</p>
                 <div className="flex flex-row items-center mb-8">
                     {features.map(feature => (
@@ -78,7 +78,7 @@ function HouseDetails():ReactElement{
                 <div className="propertyimages mb-16">
                     {/* images for preview */}
                     <div className="grid grid-cols-4 gap-3">
-                        <span onClick={handleOpen} className="col-span-3 cursor-pointer bg-blue-light h-64 rounded-xl" style={{
+                        <span onClick={handleOpen} className="md:col-span-3 col-span-2 cursor-pointer bg-blue-light md:h-64 h-48 rounded-xl w-full" style={{
                             backgroundImage: `url(${housePics[0]})`,
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'cover'
@@ -89,12 +89,12 @@ function HouseDetails():ReactElement{
                             aria-labelledby="simple-modal-title"
                             aria-describedby="simple-modal-description"
                         >
-                            <div style={modalStyle} className={classes.paper}>
+                            <div style={modalStyle} className={'absolute rounded-lg'}>
                                 <Image height="500" width="800" src={housePics[0]} alt="" className="w-full" />
                             </div >
                         </Modal>
                         {housePics.length <= 5 ? (
-                            <div className="col-span-1 grid grid-cols-2 gap-3">
+                            <div className="md:col-span-1 col-span-2 grid grid-cols-2 gap-3 w-full">
                                 <SmallImage
                                     className="col-span-1"
                                     picture={housePics[1]}
@@ -113,7 +113,7 @@ function HouseDetails():ReactElement{
                                 />
                             </div>
                         ) : (
-                            <div className="col-span-1 grid grid-cols-2 gap-3">
+                            <div className="md:col-span-1 col-span-2 grid grid-cols-2 gap-3">
                                 <SmallImage
                                     className="col-span-1"
                                     picture={housePics[1]}
@@ -139,7 +139,7 @@ function HouseDetails():ReactElement{
                 {/* below the image */}
                 <p className="text-xl text-gray-800 font-semibold">Details</p>
                 <div className="details">
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid md:grid-cols-4 grid-cols-1 gap-3">
                         <div className="col-span-3 pt-8">
                             <div className="grid grid-cols-4 gap-5 mb-8">
                                 {/* number of peaople */}

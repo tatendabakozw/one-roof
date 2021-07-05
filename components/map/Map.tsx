@@ -21,7 +21,7 @@ function Map(props: Props) {
       {...viewport}
       mapStyle='mapbox://styles/tatendazw/ck7uze5kw03vh1isac80epmam'
       mapboxApiAccessToken='pk.eyJ1IjoidGF0ZW5kYXp3IiwiYSI6ImNrcTc2b3l4aTAzOHkydW93dTVkMTg1bTMifQ.lidh6UhOY7K4AkTSxfG4uA'
-      onViewportChange={(nextViewport: React.SetStateAction<{ width: number; height: number; latitude: number; longitude: number; zoom: number; }>) => setViewport(nextViewport)}
+      onViewportChange={(nextViewport: React.SetStateAction<{ width: any; height: any; latitude: number; longitude: number; zoom: number; }>) => setViewport(nextViewport)}
     />
   );
 }
