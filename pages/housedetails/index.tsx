@@ -146,13 +146,15 @@ function HouseDetails():ReactElement{
                                 <DetailComponent
                                     className="grid-cols-1"
                                     icon={<PersonOutlineOutlinedIcon />}
+                                    iconStyle="text-green-500 p-2 bg-green-200 flex"
                                     detail="2 Adults"
                                 />
 
                                 {/* space available */}
                                 <DetailComponent
                                     className="grid-cols-1"
-                                    icon={<AspectRatioOutlinedIcon />}
+                                    icon={<AspectRatioOutlinedIcon fontSize="small" />}
+                                    iconStyle="text-blue-500 p-2 bg-blue-200 flex"
                                     detail="300 sqrM"
                                 />
 
@@ -160,6 +162,7 @@ function HouseDetails():ReactElement{
                                 <DetailComponent
                                     className="grid-cols-1"
                                     icon={<MeetingRoomOutlinedIcon />}
+                                    iconStyle="text-pink-500 p-2 bg-pink-200 flex"
                                     detail="5 Rooms"
                                 />
 
@@ -167,6 +170,7 @@ function HouseDetails():ReactElement{
                                 <DetailComponent
                                     className="grid-cols-1"
                                     icon={<KingBedOutlinedIcon />}
+                                    iconStyle="text-indigo-500 p-2 bg-indigo-200 flex"
                                     detail="9 Beds"
                                 />
                             </div>
